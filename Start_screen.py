@@ -1,10 +1,13 @@
+#загрузка библиотек
 import pygame
 import sys
 import os
 
+#громкомть звука
 music, sound_effects = 1, 1
 screen = 0
 
+#загрузка изображения
 def load_image(name, colorkey=None):
     fullname = os.path.join('data', name)
     # если файл не существует, то выходим
@@ -15,13 +18,16 @@ def load_image(name, colorkey=None):
     return image
 
 
+#получение экрана
 def get_screen(s):
     global screen
     screen = s
 
+#вернуть переменные звука
 def take_sound():
     return music, sound_effects
 
+#кнопки на экране
 class StartScreenButtons:
     def __init__(self):
         self.options = [199, 445, 199, 241]
@@ -86,10 +92,11 @@ class StartScreenButtons:
                 text_coord += intro_rect.height
                 screen.blit(string_rendered, intro_rect)
 
+    #обработка событий
     def action(self, mouse_pos):
         global music
         global sound_effects
-        if self.screen_number == 0: #menu
+        if self.screen_number == 0: #если находимся в меню
             if self.options[0] < mouse_pos[0] < self.options[1] and \
                     self.options[2] < mouse_pos[1] < self.options[3]:
                 self.screen_number = 1
@@ -99,7 +106,7 @@ class StartScreenButtons:
             elif self.credits[0] < mouse_pos[0] < self.credits[1] and \
                     self.credits[2] < mouse_pos[1] < self.credits[3]:
                 self.screen_number = 2
-        elif self.screen_number == 1: #options
+        elif self.screen_number == 1: #в окне настройки
             if self.back_button[0] < mouse_pos[0] < self.back_button[1] and \
                     self.back_button[2] < mouse_pos[1] < self.back_button[3]:
                 self.screen_number = 0
@@ -119,5 +126,5 @@ class StartScreenButtons:
                     self.sound_button_p[2] < mouse_pos[1] < self.sound_button_p[3]:
                 if sound_effects < 1:
                     sound_effects = (int(sound_effects * 100) + 5) / 100
-        elif self.screen_number == 2: # credits
+        elif self.screen_number == 2: #окно с титрами
             self.screen_number = 0
