@@ -19,6 +19,8 @@ for i in range(x):
             f.write("#")
         elif r == 255 and g == 0 and b == 0:
             f.write("$")
+        elif r == 98 and g == 255 and b == 0:
+            f.write("e")
     f.write("\n")
 im.close
 f.close
