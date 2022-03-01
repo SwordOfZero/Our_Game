@@ -109,6 +109,7 @@ class Enemies(pygame.sprite.Sprite):
         self.sword.update_position(self.pos_x, self.pos_y) #перемещение меча
         self.sword.rotate(self.rotate_angles[rot]) #поворот в правильную сторону
         self.sword.playing = True
+        f.sound_effect_sword.play()
 
     def get_hit(self, atacking):
         if pygame.sprite.spritecollideany(self, f.hero_weapon_group) and self.hptimer == 0 and atacking:

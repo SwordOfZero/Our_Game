@@ -77,6 +77,8 @@ class Player(pygame.sprite.Sprite):
     def hit(self, rot):
         self.sword.update_position(self.pos_x, self.pos_y) #перемещение меча
         self.sword.rotate(self.rotate_angles[rot]) #поворот в правильную сторону
+        if not self.sword.playing:
+            f.sound_effect_sword.play()
         self.sword.playing = True
 
     def get_hit(self, atacking):

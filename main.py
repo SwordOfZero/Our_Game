@@ -113,12 +113,13 @@ camera.start_position(player, player)
 for sprite in f.all_sprites:
     camera.apply(sprite)
 f.all_sprites.draw(screen)
-global_frame = 0
+pygame.mixer.music.load('data/The_Forgotten.mp3')
+pygame.mixer.music.play(-1)
+pygame.mixer.music.set_volume(music)
+f.sound_effect_sword.set_volume(sound_effects)
 
 #игра работает
 while running:
-    #счётчик кадров
-    global_frame = (global_frame + 1) % FPS
     #кнопки
     keys = pygame.key.get_pressed()
     way = [keys[pygame.K_UP], keys[pygame.K_RIGHT], keys[pygame.K_DOWN], keys[pygame.K_LEFT]]

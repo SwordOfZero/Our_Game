@@ -75,12 +75,10 @@ class StartScreenButtons:
         elif screen_number == 2:
             image = load_image('credits.png')
             screen.blit(image, (0, 0))
-            intro_text = ["Разработчики:",
-                          "  Киндеев Лев, Макаров Макар",
-                          "Художники:",
-                          "  Макаров Макар, Киндеев Лев",
-                          "Отель:",
-                          "  Триваго"]
+            intro_text = ["Разработчик:",
+                          "  Киндеев Лев",
+                          "Художник:",
+                          "  Киндеев Лев",]
             font = pygame.font.Font(None, 30)
             text_coord = 50
             for line in intro_text:

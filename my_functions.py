@@ -4,6 +4,7 @@ import os
 import main_hero as hero
 
 
+pygame.mixer.init()
 tile_width = tile_height = 30
 tiles_group = pygame.sprite.Group() #создание группы тайлов
 wall_group = pygame.sprite.Group() #создание группы стен
@@ -12,6 +13,7 @@ player_group = pygame.sprite.Group() #создание группы игрока
 enemy_group = pygame.sprite.Group()
 hero_weapon_group = pygame.sprite.Group() #создание группы оружия игрока
 enemy_weapon_group = pygame.sprite.Group()
+sound_effect_sword = pygame.mixer.Sound("data/sword.wav")
 
 #класс тайлов
 class Tile(pygame.sprite.Sprite):
