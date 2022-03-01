@@ -2,7 +2,6 @@
 #подключение библиотек
 import pygame
 import sys
-import os
 import Start_screen
 import main_hero as hero
 import my_functions as f

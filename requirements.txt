@@ -1,0 +1,4 @@
+sys
+pygame
+os
+PIL
